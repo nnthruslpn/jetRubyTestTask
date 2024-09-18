@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import TileBoard from './components/TileBoard';
+import { useGameLogic } from './store/gameReducer';
 
-function App() {
+const App = () => {
+  const { tiles, flipTile } = useGameLogic();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="title">JetRuby Test Task</h1>
+      <TileBoard tiles={tiles} onTileClick={flipTile} />
+      
+      <footer className="footer">
+        <p>Морозов Вадим Сергеевич</p>
+        <p>+7(918)338-75-90</p>
+        <p>nnthruslpn@gmail.com</p>
+
+      </footer>
     </div>
   );
-}
+};
 
 export default App;
